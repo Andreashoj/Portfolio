@@ -1,0 +1,137 @@
+@mixin grid-container {
+    display: grid;
+    grid-template-columns: [line1] 6% [line2] 4% [center]auto  [line3] 4% [line4] 6%;
+    grid-template-rows: 140px auto; 
+    grid-template-areas: 
+        '. header header header .'
+        '. . intro . .'
+}
+
+@mixin flex-align {
+    display: flex;
+    align-items: center;
+}
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+}
+
+@mixin flex-between {
+    display: flex; 
+    justify-content: space-between;
+}
+@mixin link-clear {
+    list-style-type: none;
+    text-decoration: none;
+}
+
+@mixin button {
+    width: 300px;
+    height: 55px;
+    border: 2px solid $gray;
+    color: $white;
+    background-color: $darkblue;
+    transition: all $transition;
+    &:hover {
+        background-color: $gray;
+        color: $darkblue;
+        font-size: 1.4rem;
+        font-weight: $font-weight-bold;
+    }
+}
+
+@mixin transform-size {
+    transition: transform $transition;
+    &:hover {
+        transform: scale(1.1);
+        
+    }
+}
+
+// ================================================================= //
+
+
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: $font-stack-primary;
+}
+
+.container {
+    @include grid-container;
+    height: $height-full;
+    min-height: 800px;
+    background-color: $darkblue;
+}
+
+nav {
+    @include flex-between;
+    @include flex-align;
+    font-weight: $font-weight-bold;
+    grid-area: header;
+    .header-icons svg {
+        height: $header-icon-size;
+        width: $header-icon-size;
+        padding-right: 10px;
+        @include transform-size;
+        .cls-1 {
+            transition: fill $transition;
+        }
+        &:hover .cls-1 {
+            fill: $hover-primary;
+        }
+    }
+    ul { 
+        display: $flex;
+        flex-wrap: wrap;
+        li {
+            font-size: $nav-size;
+            list-style-type: none;  
+            font-weight: $font-weight-semi;
+            padding-left: 75px;  
+                
+        }
+    }
+    a {
+        color: $white;
+        @include link-clear;
+        transition: color $transition;
+        &:hover {
+            color: $hover-primary;
+        }
+    }
+}
+
+
+
+.intro {
+    grid-area: intro;
+    @include flex-align;
+    @include flex-center;
+    flex-direction: column;
+    padding-bottom: 70px;
+    text-align: center;
+    h1 {
+        font-size: $h1;
+        color: $white;
+        span {
+            color: $red;
+            text-decoration: underline;
+        }
+    }
+    p {
+        font-size: $h3;
+        color: $gray;
+        width: 60%;
+    }
+    button {
+        @include button;
+        font-size: $h3;
+        margin-top: 55px;
+        cursor: pointer;
+    }
+}
+
+
