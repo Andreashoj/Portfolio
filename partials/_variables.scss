@@ -1,10 +1,14 @@
 // Variables
 
 $darkblue: #232B37;
+$darkerblue: rgb(19, 24, 31);
 $white: #fff;
 $gray: #D9D9D9;
 $red: #FF6464;
 $hover-primary: #FF6464;
+$text-selection-primary: rgb(255, 160, 160);
+
+
 
 $font-stack-primary: 'Montserrat', sans-serif;
 
@@ -20,3 +24,7 @@ $height-full: 100vh;
 $header-icon-size: 2em;
 $flex: flex;
 $transition: 0.25s ease;
+
+$screen-s: 479px;
+$screen-m: 768px;
+$screen-l: 1024px;
