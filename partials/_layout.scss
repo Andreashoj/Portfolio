@@ -7,7 +7,7 @@
         '. . intro . .'
     ;
     @media only screen and (max-width: $screen-s) {
-        grid-template-rows: 0px auto;
+        grid-template-rows: 50px auto;
     }
 }
 
@@ -80,7 +80,7 @@
 .container {
     @include grid-container;
     height: $height-full;
-    min-height: 900px;
+    min-height: 700px;
     background-color: $darkblue;
 }
 
@@ -183,13 +183,31 @@ nav {
 .toggle {
     position: fixed;
     width: 90%;
-    justify-content: flex-end;
+    align-items: flex-end;
     padding-top: 20px;
     color: $white;
     font-size: 2rem;
     display: none;
+    flex-direction: column;
     grid-area: header;
     z-index: 1;
+    span {
+        width: 38px;
+        background-color: $white;
+        height: 5px;
+        margin: 3px;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+    }
+    .burger-anime:nth-child(1) {
+        transform: translateY(11px) rotate(-45deg)
+    }
+    .burger-anime:nth-child(2) {
+        opacity: 0;
+    }
+    .burger-anime:nth-child(3) {
+        transform: translateY(-11px) rotate(45deg)
+    }
     @media only screen and (max-width: $screen-m){
         display: flex;   
               
@@ -224,14 +242,15 @@ nav {
         width: 60%;
         @include text-selection-primary;
         @media only screen and (max-width: $screen-m){
-            width: 80%;
+            width: 100%;
+            margin-top: 20px;
         }
     }
     button {
         @include button;
         @include text-selection-primary;
         font-size: $h3;
-        margin-top: 55px;
+        margin-top: 25px;
         cursor: pointer;
     }
 }

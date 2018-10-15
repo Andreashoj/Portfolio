@@ -13,14 +13,14 @@
       grid-template-rows: 140px auto;
       grid-template-areas: '. header header header .' '. . intro . .';
   height: 100vh;
-  min-height: 900px;
+  min-height: 700px;
   background-color: #232B37;
 }
 
 @media only screen and (max-width: 479px) {
   .container {
-    -ms-grid-rows: 0px auto;
-        grid-template-rows: 0px auto;
+    -ms-grid-rows: 50px auto;
+        grid-template-rows: 50px auto;
   }
 }
 
@@ -197,18 +197,46 @@ nav a:hover {
 .toggle {
   position: fixed;
   width: 90%;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   padding-top: 20px;
   color: #fff;
   font-size: 2rem;
   display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   -ms-grid-column-span: 3;
   grid-area: header;
   z-index: 1;
+}
+
+.toggle span {
+  width: 38px;
+  background-color: #fff;
+  height: 5px;
+  margin: 3px;
+  border-radius: 3px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.toggle .burger-anime:nth-child(1) {
+  -webkit-transform: translateY(11px) rotate(-45deg);
+          transform: translateY(11px) rotate(-45deg);
+}
+
+.toggle .burger-anime:nth-child(2) {
+  opacity: 0;
+}
+
+.toggle .burger-anime:nth-child(3) {
+  -webkit-transform: translateY(-11px) rotate(45deg);
+          transform: translateY(-11px) rotate(45deg);
 }
 
 @media only screen and (max-width: 768px) {
@@ -287,7 +315,8 @@ nav a:hover {
 
 @media only screen and (max-width: 768px) {
   .intro p {
-    width: 80%;
+    width: 100%;
+    margin-top: 20px;
   }
 }
 
@@ -302,7 +331,7 @@ nav a:hover {
   transition: all 0.25s ease;
   outline: none;
   font-size: 1.4rem;
-  margin-top: 55px;
+  margin-top: 25px;
   cursor: pointer;
 }
 
