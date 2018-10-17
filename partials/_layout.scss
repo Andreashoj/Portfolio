@@ -5,9 +5,10 @@
     grid-template-areas: 
         '. header header header .'
         '. . intro . .'
+
     ;
     @media only screen and (max-width: $screen-s) {
-        grid-template-rows: 50px auto;
+       
     }
 }
 
@@ -69,6 +70,18 @@
     flex-direction: column;
 }
 
+@mixin text-underline {
+    position: relative;
+    &::after {
+        content: '';
+        position: absolute;
+        top: 11px;
+        width: 50px;
+        height: 5px;
+        color: $darkblue;
+    }
+}
+
 // ================================================================= //
 
 *{
@@ -76,6 +89,18 @@
     margin: 0;
     font-family: $font-stack-primary;
 }
+
+// ============ SCROLL =========== //
+
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: $gray;
+}
+::-webkit-scrollbar-thumb {
+    background-color: $darkerblue;
+}
+
+// ============ HEADER ========== //
 
 .container {
     @include grid-container;
@@ -254,5 +279,61 @@ nav {
         cursor: pointer;
     }
 }
+
+/* ================== PORTFOLIO ===================== */
+
+.portfolio-container {
+    @include grid-container;
+    height: 100vh;
+    width: 100%;
+        h2 {
+            grid-area: header;
+            font-size: $h-header;
+            font-weight: $font-weight-bold;
+            @include flex-align;
+            @include flex-center;
+            text-decoration: underline;
+        }
+        
+        .project-container {
+            grid-area: intro;
+            @include flex-between;
+            @include flex-center;
+            flex-wrap: wrap;
+            .card {
+                flex-basis: 400px;
+                min-width: 45%;
+                height: 50%;
+                margin: 10px;
+                background-color: $darkblue;
+                color: $white;
+                flex-grow: 1;
+                @include flex-center;
+                @include flex-column;
+                @media only screen and (max-width: $screen-s) {
+                    width: 100%;
+                    min-width: 200px;
+                }
+                .class-holder {
+                    height: 90%;
+                    margin-left: 20px;
+                    @include flex-between;
+                    @include flex-column;
+                    p {
+                        font-size: $p;
+                        @media only screen and (max-width: $screen-s) {
+                            width: 80%;
+                        }
+                    }
+                    h3 {
+                        text-decoration: none;
+                        font-size: $h-header;
+                        
+                    }
+                }
+            }
+        }
+}
+
 
 
